@@ -1,0 +1,34 @@
+.list {
+  padding: 36px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+  scrollbar-width: thin;
+  margin: 0 auto;
+}
+
+.noContacts {
+  padding-top: 36px;
+  font-size: 20px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+.list li {
+  width: calc((100% - 30px) / 4);
+  max-width: 400px;
+  border: 1px solid #21212133;
+  border-radius: 10px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-wrap: break-word;
+  transition: box-shadow 300ms ease-in-out;
+}
+
+.list li:hover {
+  box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.25);
+}
