@@ -1,5 +1,5 @@
 .contact {
-    position: relative; /* Додаємо позиціонування для визначення місця іконки */
+    position: relative; 
     display: flex;
     gap: 15px;
     align-items: center;
@@ -24,10 +24,10 @@
   }
   
   .button {
-    position: absolute; /* Змінено позиціонування на absolute */
-    top: 50%; /* Переміщуємо кнопку на середину контакту */
+    position: absolute; 
+    top: 50%; 
     right: 20px;
-    transform: translateY(-50%); /* Центруємо кнопку вертикально */
+    transform: translateY(-50%); 
     width: 40px;
     height: 40px;
     background-color: transparent;
