@@ -7,14 +7,14 @@ import css from './ContactForm.module.css';
 
 const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
-        .min(3, 'Too Short! Length must be between 3 and 10 characters')
-        .max(10, 'Too Long! Length must be between 3 and 10 characters')
+        .min(3, 'Too Short! Length must be between 3 and 50 characters')
+        .max(50, 'Too Long! Length must be between 3 and 50 characters')
         .required('Required'),
 
     phone: Yup.string()
         .matches(/^[0-9]+$/, 'Phone number must contain only digits')
-        .min(3, 'Too Short! Length must be between 3 and 10 characters')
-        .max(10, 'Too Long! Length must be between 3 and 10 characters')
+        .min(3, 'Too Short! Length must be between 3 and 50 characters')
+        .max(50, 'Too Long! Length must be between 3 and 50 characters')
         .required('Required'),
 });
 
@@ -28,10 +28,17 @@ const ContactForm = ({ addingContact }) => {
     const nameId = useId();
     const phoneId = useId();
 
-    const handleSubmit = (values, actions) => {
-        actions.resetForm();
-        values.id = nanoid();
-        addingContact(values);
+    const handleSubmit = async (values, actions) => {
+        try {
+            actions.setSubmitting(true); 
+            actions.resetForm();
+            values.id = nanoid();
+            await addingContact(values);
+        } catch (error) {
+            console.error("Помилка при додаванні контакту:", error);
+        } finally {
+            actions.setSubmitting(false); 
+        }
     };
 
     return (
